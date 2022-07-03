@@ -1,10 +1,8 @@
-# from turtle import title
-from audioop import reverse
+from django.urls import reverse
 import secrets
 from django import forms
 from django.http import HttpResponseRedirect
 from markdown import Markdown
-# import markdown2
 from django.shortcuts import render
 from . import util
 
@@ -18,12 +16,12 @@ def entry(request, entry):
     entryPage = util.get_entry(entry)
     if entryPage is None:
         return render(request, "encyclopedia/errorPage.html", {
-            "title": entry
+            "entryTitle": entry
         })
     else:
         return render(request, "encyclopedia/entry.html", {
             "entry": markdowner.convert(entryPage),
-            "title": entry
+            "entryTitle": entry
         })
 
 class NewPage(forms.Form):
