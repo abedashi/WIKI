@@ -14,6 +14,6 @@
     <form action="{% url 'newPage' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit">
+        <input class="btn btn-primary" type="submit">
     </form>
 {% endblock%}

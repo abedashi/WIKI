@@ -36,3 +36,21 @@ textarea {
 .sidebar h2 {
     margin-top: 5px;
 }
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+#sidebar {
+    color: white;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid #89CFF0;
+    display: flex;
+    justify-content: center;
+    margin: 12px;
+}
+#sidebar:hover {
+    color: black;
+}

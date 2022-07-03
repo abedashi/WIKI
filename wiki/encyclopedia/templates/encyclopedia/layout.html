@@ -12,17 +12,17 @@
         <div class="row">
             <div class="sidebar col-lg-2 col-md-3">
                 <h2>Wiki</h2>
-                <form>
-                    <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
+                <form action="{% url 'search' %}" method="get">
+                    <input class="form-control mx w" autocomplete="off" type="text" name="q" placeholder="Search Encyclopedia">
                 </form>
                 <div>
-                    <a href="{% url 'index' %}">Home</a>
+                    <a class="btn btn-primary" id="sidebar" href="{% url 'index' %}">Home</a>
                 </div>
                 <div>
-                    <a href="{% url 'newPage' %}">Create New Page</a>
+                    <a class="btn btn-primary" id="sidebar" href="{% url 'newPage' %}">Create New Page</a>
                 </div>
                 <div>
-                    <a href="{% url 'random' %}">Random Page</a>
+                    <a class="btn btn-primary" id="sidebar" href="{% url 'random' %}">Random Page</a>
                 </div>
                 {% block nav %}
                 {% endblock %}

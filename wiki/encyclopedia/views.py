@@ -61,19 +61,19 @@ def random(request):
     return HttpResponseRedirect(reverse("entry", kwargs={'entry': random}))
 
 def search(request):
-    value = request.GET.get('q','')
-    if (util.get_entry(value) is not None):
-        return HttpResponseRedirect(reverse("entry", kwargs={'entry': value}))
+    input = request.GET.get('q','')
+    if (util.get_entry(input) is not None):
+        return HttpResponseRedirect(reverse("entry", kwargs={'entry': input}))
     else:
         subEntries = []
         for entry in util.list_entries():
-            if value.upper() in entry.upper():
+            if input.upper() in entry.upper():
                 subEntries.append(entry)
         
         return render(request, "encyclopedia/index.html", {
             "entries": subEntries,
             "search": True,
-            "value": value
+            "input": input
         })
 
 def edit(request, entry):
