@@ -14,6 +14,6 @@
     <form action="{% url 'newPage' %}" method="post">
         {% csrf_token %}
         {{ form }}
-        <input class="btn btn-primary" type="submit">
+        <input class="btn btn-primary" style="margin-top: 10px;" type="submit">
     </form>
 {% endblock%}
