@@ -44,11 +44,6 @@ def newPage(request):
                     "existing": True,
                     "entry": title
                 })
-        else:
-            return render(request, "encyclopedia/newPage.html", {
-                "form": form,
-                "existing": False
-            })
     else:
         return render(request, "encyclopedia/newPage.html", {
             "form": NewPage(),
@@ -61,17 +56,17 @@ def random(request):
     return HttpResponseRedirect(reverse("entry", kwargs={'entry': random}))
 
 def search(request):
-    input = request.GET.get('q','')
+    input = request.GET.get('q')
     if (util.get_entry(input) is not None):
         return HttpResponseRedirect(reverse("entry", kwargs={'entry': input}))
     else:
-        subEntries = []
+        newEntries = []
         for entry in util.list_entries():
             if input.upper() in entry.upper():
-                subEntries.append(entry)
+                newEntries.append(entry)
         
         return render(request, "encyclopedia/index.html", {
-            "entries": subEntries,
+            "entries": newEntries,
             "search": True,
             "input": input
         })
